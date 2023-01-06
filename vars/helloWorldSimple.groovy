@@ -16,14 +16,14 @@ def call(String message, String facility) {
     NC='\033[0m'
     ansiColor('xterm') {
         switch (facility.toLowerCase()) {
-        case 'title':
-            echo "${BLUE} Hello World ${message}. ${NC}"
+        case 'info':
+            echo "${BLUE} INFO: ${message}. ${NC}"
             break
         case 'debug':
-            echo "${LIGHT_RED} Hello World ${message}. ${NC}"
+            echo "${LIGHT_RED} DEBUG: ${message}. ${NC}"
             break
         case 'block':
-            echo "========== ========== ========== ========== ========== =========="
+            echo "========== ========== ========== ========== ========== ========== ========== ========== ========== ========== ========== =========="
             break        
         }
     }
