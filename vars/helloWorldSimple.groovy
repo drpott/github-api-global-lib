@@ -1,4 +1,4 @@
-def call(String message) {
+def call(String message, String facility) {
     RED='\033[0;31m'
     LIGHT_RED='\033[1;31m'
     BLUE='\033[0;34m'
@@ -15,6 +15,16 @@ def call(String message) {
     LIGHT_GRAY='\033[0;37m'
     NC='\033[0m'
     ansiColor('xterm') {
-      echo "${BLUE} Hello World ${message}. ${NC}"
+        switch (facility.toLowerCase()) {
+        case 'title':
+            echo "${BLUE} Hello World ${message}. ${NC}"
+            break
+        case 'debug':
+            echo "${LIGHT_RED} Hello World ${message}. ${NC}"
+            break
+        case 'block':
+            echo "========== ========== ========== ========== ========== =========="
+            break        
+        }
     }
 }
